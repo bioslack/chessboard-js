@@ -9,9 +9,9 @@
   "source": "./src/ts/main.ts",
   "main": "./dist/js/main.js",
   "scripts": {
-    "start": "parcel",
+    "start:dev": "parcel",
     "build": "parcel build",
-    "serve": "serve ./dist/"
+    "start": "serve ./dist/"
   },
   "devDependencies": {
     "@types/chess.js": "^0.13.1",
