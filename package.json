@@ -1,7 +1,6 @@
 {
   "name": "chess-javascript",
   "version": "1.0.0",
-  "main": "./src/index.html",
   "license": "MIT",
   "dependencies": {
     "chess.js": "^0.13.2"
