@@ -5,7 +5,8 @@
   "dependencies": {
     "chess.js": "^0.13.2"
   },
-  "source" : "./src/index.html",
+  "source" : "./src/ts/main.ts",
+  "main": "./dist/js/main.js",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
