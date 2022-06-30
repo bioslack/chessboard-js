@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  user-select: none;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #272727;
+  /* border: 3px solid #fff; */
+}
+
+.square {
+  display: inline-block;
+  width: calc(90vh / 8);
+  height: calc(90vh / 8);
+  background-color: #fdfdfd;
+}
+
+.square--white {
+  background-color: #eeeed2;
+}
+.square--black {
+  background-color: #769656;
+}
+
+.row {
+  display: flex;
+}
+
+.chessboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 5px solid #444;
+  height: calc(90vh + 10px);
+  margin: calc((10vh - 10px) / 2) 20px;
+}
+
+.history {
+  position: relative;
+  margin: calc((10vh - 10px) / 2) 0;
+  width: calc((90vw + 10px) / 3);
+  flex-grow: 1;
+  /* height: calc((90vh + 10px) * 0.8); */
+  /* border: 5px solid #444; */
+  border-radius: 5px;
+  background-color: #585858;
+  min-width: 300px;
+  color: #fff;
+  padding: 5px 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  overflow-y: auto;
+}
+
+.history__item {
+  display: inline-block;
+  margin: 2px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .1s;
+}
+
+.history__item:not(.history__item--selected):hover {
+  background-color: #7c7c7c;
+}
+
+.history__item--selected {
+  background-color: #7c7c7c;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  width: calc((90vh + 10px) / 2);
+  /* background-color: #f00; */
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  /* border: 5px solid #444; */
+  border-radius: 5px;
+  background-color: #585858;
+  /* height: calc((90vh + 10px) * 0.15); */
+  margin-bottom: calc((10vh - 10px) / 2);
+  padding: 5px;
+  width: calc((90vw + 10px) / 3);
+  min-width: 300px;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  margin: 0 5px;
+  width: 50px;
+  height: 42px;
+  font-size: 14px;
+  font-weight: bolder;
+  background-color: #3f3f3f;
+  padding: 2px 15px;
+  transition: all .2s;
+  cursor: pointer;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: rgb(104, 104, 104);
+  box-shadow: 0px 1px 5px rgb(100, 100, 100);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  background-color: rgb(104, 104, 104);
+  transform: translateY(-.5px);
+}
