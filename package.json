@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "chess.js": "^0.13.2"
+    "chess.js": "^0.13.2",
+    "serve": "^13.0.2"
   },
-  "source" : "./src/ts/main.ts",
+  "source": "./src/ts/main.ts",
   "main": "./dist/js/main.js",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "serve": "serve ./dist/"
   },
   "devDependencies": {
     "@types/chess.js": "^0.13.1",
