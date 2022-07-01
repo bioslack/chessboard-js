@@ -2,6 +2,12 @@
   "name": "chess-javascript",
   "version": "1.0.0",
   "license": "MIT",
+  "targets": {
+    "global": {
+      "context": "browser",
+      "outputFormat": "global"
+    }
+  },
   "dependencies": {
     "chess.js": "^0.13.2",
     "serve": "^13.0.2"
