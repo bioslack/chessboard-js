@@ -7,10 +7,3 @@ document.addEventListener("dragover", function(event) {
 const game = new Game();
 
 game.render();
-
-// const chess = new Chess();
-
-// const board = new Board(chess);
-// board.render();
-// const h = new History().render();
-// document.querySelector(".main")?.append(h);

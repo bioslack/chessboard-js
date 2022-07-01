@@ -6,16 +6,16 @@
     "chess.js": "^0.13.2",
     "serve": "^13.0.2"
   },
-  "source": "./src/ts/main.ts",
-  "main": "./dist/js/main.js",
+  "source": "src/index.html",
   "scripts": {
     "start:dev": "parcel",
-    "build": "parcel build",
-    "start": "serve ./dist/"
+    "build": "tsc --noEmit && parcel build",
+    "start": "serve"
   },
   "devDependencies": {
     "@types/chess.js": "^0.13.1",
     "parcel": "^2.6.2",
+    "sharp": "^0.29.1",
     "typescript": "^4.7.4"
   },
   "engines": {

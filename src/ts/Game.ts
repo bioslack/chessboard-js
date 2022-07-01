@@ -90,11 +90,11 @@ class FileBrowser implements GameElement {
 }
 
 class Controls implements GameElement {
-  fileBrowser: FileBrowser;
-  buttonPrev: Button;
-  buttonNext: Button;
-  buttonEnd: Button;
-  buttonBegin: Button;
+  fileBrowser?: FileBrowser;
+  buttonPrev?: Button;
+  buttonNext?: Button;
+  buttonEnd?: Button;
+  buttonBegin?: Button;
 
   render() {
     const div = document.createElement("div");
@@ -118,14 +118,14 @@ class Controls implements GameElement {
 }
 
 export default class Game implements GameElement {
-  currentGame: ChessInstance;
-  origin: String;
-  board: Board;
-  historyPanel: History;
+  currentGame?: ChessInstance;
+  origin?: String;
+  board?: Board;
+  historyPanel?: History;
 
   historyBackward: string[];
   historyForward: string[];
-  controls: Controls;
+  controls?: Controls;
 
   constructor() {
     this.historyBackward = [];
@@ -194,8 +194,9 @@ export default class Game implements GameElement {
             const file = inputFile?.files[0];
             const reader = new FileReader();
 
-            const handler = function (event) {
-              self.loadPGN(event.target.result);
+            const handler = function (event: ProgressEvent<FileReader>) {
+              if(event.target?.result)
+                self.loadPGN(`${event.target.result}`);
               // reader.removeEventListener("load", handler);
             };
             reader.addEventListener("load", handler);
@@ -271,8 +272,8 @@ export default class Game implements GameElement {
     const rows = "87654321";
 
     const old = new Chess();
-    old.load_pgn(this.currentGame.pgn());
-    const moveValid = this.currentGame.move(
+    old.load_pgn(this.currentGame!.pgn());
+    const moveValid = this.currentGame!.move(
       `${this.origin}${columns[i]}${rows[j]}`,
       {
         sloppy: true,
@@ -280,7 +281,7 @@ export default class Game implements GameElement {
     );
 
     if (moveValid) {
-      this.historyBackward = this.currentGame.history();
+      this.historyBackward = this.currentGame!.history();
       this.historyForward = [];
 
       this.render();
@@ -296,7 +297,7 @@ export default class Game implements GameElement {
     const sidePanel = document.createElement("div");
 
     sidePanel.classList.add("side-panel");
-    this.board = new Board(this.currentGame);
+    this.board = new Board(this.currentGame!);
     this.historyPanel = new History(
       [...this.historyBackward, ...this.historyForward.slice().reverse()],
       this.historyBackward.length - 1

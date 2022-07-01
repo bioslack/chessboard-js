@@ -1,29 +1,19 @@
 import GameElement from "./GameElement";
 import { Square as Coordination, PieceType, ChessInstance } from "chess.js";
-// @ts-ignore
-import bb from "./assets/bb.png";
-// @ts-ignore
-import bk from "./assets/bk.png";
-// @ts-ignore
-import bn from "./assets/bn.png";
-// @ts-ignore
-import bp from "./assets/bp.png";
-// @ts-ignore
-import bq from "./assets/bq.png";
-// @ts-ignore
-import br from "./assets/br.png";
-// @ts-ignore
-import wb from "./assets/wb.png";
-// @ts-ignore
-import wk from "./assets/wk.png";
-// @ts-ignore
-import wn from "./assets/wn.png";
-// @ts-ignore
-import wp from "./assets/wp.png";
-// @ts-ignore
-import wq from "./assets/wq.png";
-// @ts-ignore
-import wr from "./assets/wr.png";
+
+const bb = new  URL("./assets/bb.png?as=webp&width=250", import.meta.url);
+const bk = new  URL("./assets/bk.png?as=webp&width=250", import.meta.url);
+const bn = new  URL("./assets/bn.png?as=webp&width=250", import.meta.url);
+const bp = new  URL("./assets/bp.png?as=webp&width=250", import.meta.url);
+const bq = new  URL("./assets/bq.png?as=webp&width=250", import.meta.url);
+const br = new  URL("./assets/br.png?as=webp&width=250", import.meta.url);
+const wb = new  URL("./assets/wb.png?as=webp&width=250", import.meta.url);
+const wk = new  URL("./assets/wk.png?as=webp&width=250", import.meta.url);
+const wn = new  URL("./assets/wn.png?as=webp&width=250", import.meta.url);
+const wp = new  URL("./assets/wp.png?as=webp&width=250", import.meta.url);
+const wq = new  URL("./assets/wq.png?as=webp&width=250", import.meta.url);
+const wr = new  URL("./assets/wr.png?as=webp&width=250", import.meta.url);
+
 
 const pieces = { bb, bk, bn, bp, bq, br, wb, wk, wn, wp, wq, wr };
 
@@ -38,7 +28,7 @@ class Square implements GameElement {
   row: number;
   column: number;
 
-  constructor(row, column, data?: SquareData | null) {
+  constructor(row: number, column: number, data?: SquareData | null) {
     this.data = data;
     this.row = row;
     this.column = column;
@@ -60,10 +50,9 @@ class Square implements GameElement {
 
     if (this.data) {
       const piece = document.createElement("img");
-
       piece.style.width = "100%";
       piece.style.height = "100%";
-      piece.src = pieces[`${this.data.color}${this.data.type}`];
+      piece.src = pieces[`${this.data.color}${this.data.type}`].href;
       piece.alt = "Chess piece";
       piece.ariaColIndex = `${this.column}`;
       piece.ariaRowIndex = `${this.row}`;
@@ -103,6 +92,7 @@ export default class Board implements GameElement {
 
   constructor(game: ChessInstance) {
     this.game = game;
+    this.origin = "";
   }
 
   render() {
