@@ -9,3 +9,7 @@ A simple chessboard built with TypeScript, Parcel, chess.js
 * PGN Viewer
 * Movements history
 * Navigation
+
+## Demo
+
+http://chessboard-js.herokuapp.com/
