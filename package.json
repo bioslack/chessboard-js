@@ -9,22 +9,27 @@
     }
   },
   "dependencies": {
-    "chess.js": "^0.13.2",
-    "serve": "^13.0.2"
+    "chess.js": "^0.13.2"
   },
   "source": "src/index.html",
   "scripts": {
-    "start:dev": "parcel",
-    "build": "tsc --noEmit && parcel build",
-    "start": "serve"
+    "build": "webpack",
+    "start": "webpack serve --open",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "@types/chess.js": "^0.13.1",
-    "parcel": "^2.6.2",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
     "sharp": "^0.29.1",
-    "typescript": "^4.7.4"
+    "style-loader": "^3.3.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.7.4",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.12.0"
   },
   "engines": {
-    "node": "16.15.0"
+    "node": "18.14.0"
   }
 }

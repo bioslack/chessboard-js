@@ -1,18 +1,18 @@
 import GameElement from "./GameElement";
 import { Square as Coordination, PieceType, ChessInstance } from "chess.js";
 
-const bb = new  URL("./assets/bb.png?as=webp&width=250", import.meta.url);
-const bk = new  URL("./assets/bk.png?as=webp&width=250", import.meta.url);
-const bn = new  URL("./assets/bn.png?as=webp&width=250", import.meta.url);
-const bp = new  URL("./assets/bp.png?as=webp&width=250", import.meta.url);
-const bq = new  URL("./assets/bq.png?as=webp&width=250", import.meta.url);
-const br = new  URL("./assets/br.png?as=webp&width=250", import.meta.url);
-const wb = new  URL("./assets/wb.png?as=webp&width=250", import.meta.url);
-const wk = new  URL("./assets/wk.png?as=webp&width=250", import.meta.url);
-const wn = new  URL("./assets/wn.png?as=webp&width=250", import.meta.url);
-const wp = new  URL("./assets/wp.png?as=webp&width=250", import.meta.url);
-const wq = new  URL("./assets/wq.png?as=webp&width=250", import.meta.url);
-const wr = new  URL("./assets/wr.png?as=webp&width=250", import.meta.url);
+import bb from "./assets/bb.png";
+import bk from "./assets/bk.png";
+import bn from "./assets/bn.png";
+import bp from "./assets/bp.png";
+import bq from "./assets/bq.png";
+import br from "./assets/br.png";
+import wb from "./assets/wb.png";
+import wk from "./assets/wk.png";
+import wn from "./assets/wn.png";
+import wp from "./assets/wp.png";
+import wq from "./assets/wq.png";
+import wr from "./assets/wr.png";
 
 
 const pieces = { bb, bk, bn, bp, bq, br, wb, wk, wn, wp, wq, wr };
@@ -52,7 +52,7 @@ class Square implements GameElement {
       const piece = document.createElement("img");
       piece.style.width = "100%";
       piece.style.height = "100%";
-      piece.src = pieces[`${this.data.color}${this.data.type}`].href;
+      piece.src = pieces[`${this.data.color}${this.data.type}`];
       piece.alt = "Chess piece";
       piece.ariaColIndex = `${this.column}`;
       piece.ariaRowIndex = `${this.row}`;
@@ -98,7 +98,6 @@ export default class Board implements GameElement {
   render() {
     const board = document.createElement("div");
     board.classList.add("chessboard");
-    const self = this;
 
     this.game.board().forEach(function (r, index) {
       if (r) {
