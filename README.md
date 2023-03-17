@@ -12,4 +12,4 @@ A simple chessboard built with TypeScript, Parcel, chess.js
 
 ## Demo
 
-http://chessboard-js.herokuapp.com/
+http://bioslack.github.io/chessboard-js/
